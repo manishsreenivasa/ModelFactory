@@ -1,0 +1,7 @@
+Exo_PelvisModule, UseMeanDensity, 800.0, , , , , , , , , , , , , 
+Exo_ThighBar_L, UseMeanDensity, 2500.0, , , , , , , , , , , , ,
+Exo_ThighModule_L, UseMeanDensity, 1200.0, , , , , , , , , , , , ,
+Exo_ThighBar_R, UseMeanDensity, 2500.0, , , , , , , , , , , , ,
+Exo_ThighModule_R, UseMeanDensity, 1200.0, , , , , , , , , , , , ,
+Exo_TorsoBar, UseMeanDensity, 2500.0, , , , , , , , , , , , ,
+Exo_UpperTrunkModule, UseMeanDensity, 300.0, , , , , , , , , , , , ,

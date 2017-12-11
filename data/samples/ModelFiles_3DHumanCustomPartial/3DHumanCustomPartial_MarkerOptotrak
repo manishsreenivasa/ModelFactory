@@ -1,0 +1,8 @@
+Segment_Pelvis, Cluster, 0.043, Pelvis_1, Pelvis_3, Pelvis_2, , , , -1.0, -0.05, 0.90, 0, 20, 0
+Segment_MiddleTrunk, Cluster, 0.043, Midtrunk_4, Midtrunk_6, Midtrunk_5, , , , -1.05, -0.013, 0.675, -10, -20, 0
+Segment_UpperTrunk, Cluster, 0.043, Uppertrunk_1, Uppertrunk_3, Uppertrunk_2, , , , -0.45, -0.05, 0.55, 0, 10, 0
+Segment_Head, Cluster, 0.043, Head_1, Head_3, Head_2, , , , -0.1, -0.5, 0.5, 0, -10, -20
+Segment_UpperArm_L, Cluster, 0.043, Upperarm_L_1, Upperarm_L_2, Upperarm_L_3, , , , 0.2, 0.15, -0.6, 0, -90, 20
+Segment_LowerArm_L, Cluster, 0.02, Lowerarm_L_2, Lowerarm_L_1, Lowerarm_L_3, , , , 0.0, 0.1, -0.7, 0, 25, 160
+Segment_UpperArm_R, Cluster, 0.04, Upperarm_R_2, Upperarm_R_1, Upperarm_R_3, , , , 0.05, -0.25, -0.75, 0, -15, -15
+Segment_LowerArm_R, Cluster, 0.04, Lowerarm_R_2, Lowerarm_R_1, Lowerarm_R_3, , , , 0.0, -0.15, -0.65, -5, 0, -5,

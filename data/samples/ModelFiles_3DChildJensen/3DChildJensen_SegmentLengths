@@ -1,0 +1,15 @@
+# The order of segment names here does not matter. As long as the same segment name is contained in the human model description file
+0.42, Torso
+0.26, Thigh_R
+0.28, Shank_R
+0.14, Foot_R
+0.26, Thigh_L
+0.28, Shank_L
+0.14, Foot_L
+0.16, Head
+0.2, UpperArm_R
+0.18, LowerArm_R
+0.09, Hand_R
+0.2, UpperArm_L
+0.18, LowerArm_L
+0.09, Hand_L

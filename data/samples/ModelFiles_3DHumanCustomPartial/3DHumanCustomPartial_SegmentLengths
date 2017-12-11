@@ -1,0 +1,11 @@
+# The order of segment names here does not matter. As long as the same segment name is contained in the human model description file
+0.15, Pelvis
+0.14, MiddleTrunk
+0.34, UpperTrunk
+0.20, Head
+0.286, UpperArm_R
+0.256, LowerArm_R
+0.18, Hand_R
+0.286, UpperArm_L
+0.256, LowerArm_L
+0.18, Hand_L

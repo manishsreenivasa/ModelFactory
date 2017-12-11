@@ -1,0 +1,7 @@
+Exo_PelvisModule, Exo_PelvisModule_3D, Joint_Root3D_TXTYTZRYRXRZ, ROOT, Contacts_Exo_PelvisModule_3D, ,
+Exo_ThighBar_R, Exo_ThighBar_R_3D, Joint_RYRXRZ, Exo_PelvisModule, , ,
+Exo_ThighModule_R, Exo_ThighModule_R_3D, Joint_RYRXTZ, Exo_ThighBar_R, Contacts_Exo_ThighModule_R_3D, ,
+Exo_ThighBar_L, Exo_ThighBar_L_3D, Joint_RYRXRZ, Exo_PelvisModule, , ,
+Exo_ThighModule_L, Exo_ThighModule_L_3D, Joint_RYRXTZ, Exo_ThighBar_L, Contacts_Exo_ThighModule_L_3D, ,
+Exo_TorsoBar, Exo_TorsoBar_3D, Joint_RY, Exo_PelvisModule, , ,
+Exo_UpperTrunkModule, Exo_UpperTrunkModule_3D, Joint_RYTZ, Exo_TorsoBar, Contacts_Exo_UpperTrunkModule_3D, ,

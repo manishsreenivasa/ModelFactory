@@ -1,0 +1,321 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>ModelFactory Documentation</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2017-12-08"><meta name="DC.source" content="doc_ModelFactory.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>ModelFactory Documentation</h1><!--introduction--><p><tt>Copyright (c) 2017 Manish Sreenivasa</tt></p><p><tt>Author: Manish Sreenivasa, <a href="manish.sreenivasa@ziti.uni-heidelberg.de">manish.sreenivasa@ziti.uni-heidelberg.de</a>, Heidelberg University, Germany</tt></p><p><tt>Licensed under the zlib license. See LICENSE for more details.</tt></p><p><tt>Developments of the toolkit can be followed on</tt></p><p><tt>Please cite this work as</tt></p><pre class="codeoutput error">Error using dbstatus
+Error: File: /home/manish/dev/spexor/ModelFactory/doc/doc_ModelFactory.m Line: 40 Column: 27
+Unexpected MATLAB operator.
+</pre><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">General Description</a></li><li><a href="#3">Environment Setup (Model Descriptions)</a></li><li><a href="#10">Model Customization Options</a></li><li><a href="#15">Model Creation</a></li><li><a href="#18">Model Visualization</a></li><li><a href="#20">Model Export</a></li></ul></div><h2 id="1">General Description</h2><p>The ModelFactory toolkit consists of a set of scripts in Matlab&reg;/Octave that can be used to create models of humans and objects By default a graphical user interface is included that works on Matlab (tested on Matlab 2017a&reg;). A text based interface for Octave (tested on Octave 4.2.1) as well as Matlab&reg;.</p><p><img vspace="5" hspace="5" src="GUI.png" alt=""> </p><h2 id="3">Environment Setup (Model Descriptions)</h2><p>The environment file provides the ModelCreator script with all information needed to initialize, create and export the models. The fields present within the environment file should point to other files that describe the model setup. Comment lines start with a #. Some sample enviroment files are available in data/samples. Options loaded from the environment file can still be overwritten using the menu available in the GUI.</p><p>Setting up an environment: Environment files may be loaded in the GUI using the "Load Environment Setup' button located top left. In the non-GUI version, edit ModelCreator_noGUI.m to point to the right file</p><p><img vspace="5" hspace="5" src="env.png" alt=""> </p><pre class="codeinput">EnvironmentSetupFile = [<span class="string">'data/samples/EnvironmentSetup_3DHumanDefault.env'</span>];
+</pre><p><b>Human Model Options</b></p><pre class="codeinput">humanModel_DescriptionFile       <span class="comment">%&lt;----------- Specify source for human model description (mandatory)</span>
+ModelFiles_3DHumanDefault/3DHumanDefault_Description
+<span class="comment">% A sample annotated human model description file is shown below</span>
+</pre><p><img vspace="5" hspace="5" src="hum.png" alt=""> </p><pre class="codeinput">humanModel_ScalingAlgorithmChoice<span class="comment">%&lt;----------- Specify source for human model scaling algorithm (mandatory)</span>
+deLeva1996_segmentedTrunk                     <span class="comment">%must match one of the algorithms included in core/scalingAlgorithms or one provided by the user</span>
+
+humanModel_AnthropometryFile     <span class="comment">%&lt;----------- Specify source for human anthropometry (mandatory)</span>
+ModelFiles_3DHumanDefault/3DHumanDefault_Anthropometry
+
+AddMarkers                       <span class="comment">%&lt;----------- Boolean to add markers to the model (optional, defaults to 0/false)</span>
+1                                             <span class="comment">%default VICON PIG markers are used if no custom marker setups are defined (see below)</span>
+<span class="comment">%</span>
+</pre><p><b>Object Model 1 Options (optional)</b></p><pre class="codeinput">objectModel1_DescriptionFile         <span class="comment">%&lt;----------- Specify source for model description of object 1</span>
+ModelFiles_3DHumanExoBox/Exo_3D_Description
+
+objectModel1_SetupChoice             <span class="comment">%&lt;----------- Specify source for model setup function of object 1</span>
+Exo_3D                                        <span class="comment">%must match one of the algorithms included in customSetups/setups or one provided by the user</span>
+
+objectModel1_MassProperties          <span class="comment">%&lt;----------- Specify how object mass should be calculated</span>
+ModelFiles_3DHumanExoBox/Exo_3D_MassProperties    <span class="comment">%(either as user specified values, or from segment mesh volume and segment mean density, or in setup function)</span>
+<span class="comment">% A sample annotated object mass properties file is shown below</span>
+</pre><p><img vspace="5" hspace="5" src="exoMass.png" alt=""> </p><p><b>Object Model 2 Options (optional)</b> Additional objects such as boxes and other user defined elements can be created using the following options.</p><pre class="codeinput">objectModel2_DescriptionFile      <span class="comment">%&lt;----------- Specify source for object model description 2</span>
+ModelFiles_3DHumanExoBox/Box15kg_3D_Description
+
+objectModel2_SetupChoice          <span class="comment">%&lt;----------- Specify source for object model setup 2,</span>
+Box15kg_3D                                    <span class="comment">%must match one of the algorithms included in customSetups/setups or one provided by the user</span>
+</pre><h2 id="10">Model Customization Options</h2><p>The following optional customization options are currently implemented.</p><p>Custom segment lengths can be used to make the human model subject-specific. Note that the segment masses and inertia are also adjusted (linearly) proportional to the provided custom lengths</p><pre class="codeinput">humanModel_UseCustomLengths      <span class="comment">%&lt;----------- Specify source file for human segment lengths</span>
+ModelFiles_3DHumanExoBox/3DHuman_SegmentLengths
+<span class="comment">%</span>
+</pre><p>Custom markers can be defined to specify lab-specific arrangements. In addition to the default VICON PIG markerset, a custom "cluster" based markerset is cuurently available for use.</p><pre class="codeinput">UseCustomMarkers
+ModelFiles_3DHumanCustom/3DHumanCustom_MarkerOptotrak
+<span class="comment">%</span>
+</pre><p>Custom constraints can be used to define additional constraints, for example between the human and the objects. For now, only loop-type custom constraints are available between the human and objects</p><pre class="codeinput">humanModel_UseCustomConstraints
+ModelFiles_3DHumanExoBox/3DHumanExoBox_LoopConstraints
+<span class="comment">%</span>
+</pre><p>Two type of mesh options are available, "default" and "human". Default meshes plot the human limbs using simple cylindrical and other basic shapes. Human meshes have been derived from the MakeHuman software <a href="http://www.makehuman.org/">http://www.makehuman.org/</a>, and are based on a neutral-gendered character. Note that if you use human meshes alongwith custom segment scaling you probably have to play around with the mesh dimensions and mesh centers (originally defined in the scaling algorithm) to make things look good.</p><pre class="codeinput">humanModel_TypeMeshes
+human
+<span class="comment">% Image below shows the default and human meshes</span>
+</pre><p><img vspace="5" hspace="5" src="meshes.png" alt=""> </p><h2 id="15">Model Creation</h2><p>Once the environment options have been properly loaded, the ModelCreator script is ready to construct the model(s). In the GUI this is accomplished by the "Create Model" button, and in the non-GUI version this step is automatically started upon executing the ModelCreator script. Note that these steps only creates the model structures in Matlab/Octave and does not export/write anything to file. The model is setup sequentially as follows:</p><p><img vspace="5" hspace="5" src="modelCreate.png" alt=""> </p><div><ol><li>Read human anthropometry</li><li>Read human model description</li><li>Read custom lengths (if any)</li><li>Set human scaling algorithm</li><li>Add custom markers (if any)</li><li>Create human model with arguments 1-5 (core/fnc_createHumanModel(args)</li><li>Read object descriptions (if any)</li><li>Set object setups</li><li>Add custom markers (if any)</li><li>Create object models with arguments 7-9 (core/fnc_createObjectModel(args)</li><li>Compute object mass and inertia properties (if provided additionally)</li><li>Read custom constraints (if any)</li></ol></div><h2 id="18">Model Visualization</h2><p>Pressing the Create Model button in the GUI plots the created model(s). Plotting options can be controlled via the check boxes on the right. In the non-GUI version simple plots can be created using the code below, and the plot details controlled using the booleans passed to the function core/plottingUtils/fnc_plotting_plotModel.m</p><p><img vspace="5" hspace="5" src="modelVis.png" alt=""> </p><pre class="codeinput"><span class="comment">% Function call format: 1) model, 2) plotJoints, 3) plotPoints, 4) plotComs,</span>
+<span class="comment">% 5) plotMarkers, 6) printLabels, 7) Mesh Alpha (transparency), 8) markerSize,</span>
+<span class="comment">% 9) rootDisplacement [x, y, z]</span>
+<span class="comment">% Note that alpha transparency values are not yet allowed in octave (so use 1.0)</span>
+fnc_plotting_plotModel (humanModel, 0, 0, 0, 0, 0, 1.0, 20, [0 0 0]);
+<span class="keyword">for</span> objID = 1:nObjects
+    fnc_plotting_plotModel (objects(objID).objectModel, 0, 0, 0, 0, 0, 1.0, 10, [objID*0.5 objID*0.5 0.0]);
+<span class="keyword">end</span>
+</pre><h2 id="20">Model Export</h2><p>Writing of model lua file to disk can be controlled via the Save buttons on the right of the GUI. Note that the GUI preloads the filenames to be saved, but will not save automatically until told to do so (by pressing the button). In the non-GUI version file save is automatically executed at the end of model creation. If you do not wish to save files (e.g. to only visualize models), then just remove these fields or comment them in the environment file.</p><p><img vspace="5" hspace="5" src="modelExp.png" alt=""> </p><pre class="codeinput">humanModel_Save       <span class="comment">%&lt;----------- Specify target for saving human lua model,</span>
+humanModel.lua                     <span class="comment">%remove this to not save the model (automatically)</span>
+
+objectModel1_Save         <span class="comment">%&lt;----------- Specify target for saving object 1 lua model</span>
+exoModel.lua
+
+objectModel2_Save      <span class="comment">%&lt;----------- Specify target for saving object 2 lua model</span>
+boxModel.lua
+
+combinedModel_Save    <span class="comment">%&lt;----------- Specify target for saving combined lua model</span>
+3DHumanExoBox.lua                  <span class="comment">%The combined model consists of human + objects, and any custom constraints</span>
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% ModelFactory Documentation
+% |Copyright (c) 2017 Manish Sreenivasa|
+%
+% |Author: Manish Sreenivasa, <manish.sreenivasa@ziti.uni-heidelberg.de>,
+% Heidelberg University, Germany|
+%
+% |Licensed under the zlib license. See LICENSE for more details.|
+%
+% |Developments of the toolkit can be followed on|
+%
+% |Please cite this work as|
+
+%% General Description
+% The ModelFactory toolkit consists of a set of scripts in Matlab(R)/Octave 
+% that can be used to create models of humans and objects
+% By default a graphical user interface is included that works on Matlab (tested on Matlab 2017a(R)). 
+% A text based interface for Octave (tested on Octave 4.2.1) as well as Matlab(R). 
+%
+%%
+% <<GUI.png>>
+
+%% Environment Setup (Model Descriptions)
+% The environment file provides the ModelCreator script with all information needed to initialize, create and export the models. 
+% The fields present within the environment file should point to other files that describe the model setup. 
+% Comment lines start with a #.
+% Some sample enviroment files are available in data/samples.
+% Options loaded from the environment file can still be overwritten using the menu available in the GUI.
+%
+% Setting up an environment: 
+% Environment files may be loaded in the GUI using the "Load Environment
+% Setup' button located top left. In the non-GUI version, edit
+% ModelCreator_noGUI.m to point to the right file
+%
+% <<env.png>>
+EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanDefault.env'];
+
+%%
+% *Human Model Options*
+humanModel_DescriptionFile       %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source for human model description (mandatory)
+ModelFiles_3DHumanDefault/3DHumanDefault_Description
+% A sample annotated human model description file is shown below
+%%
+% <<hum.png>>
+%
+
+%%
+humanModel_ScalingAlgorithmChoice%<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source for human model scaling algorithm (mandatory)
+deLeva1996_segmentedTrunk                     %must match one of the algorithms included in core/scalingAlgorithms or one provided by the user
+
+humanModel_AnthropometryFile     %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source for human anthropometry (mandatory)
+ModelFiles_3DHumanDefault/3DHumanDefault_Anthropometry
+
+AddMarkers                       %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Boolean to add markers to the model (optional, defaults to 0/false)
+1                                             %default VICON PIG markers are used if no custom marker setups are defined (see below)
+%
+%%
+% *Object Model 1 Options (optional)*
+objectModel1_DescriptionFile         %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source for model description of object 1
+ModelFiles_3DHumanExoBox/Exo_3D_Description
+
+objectModel1_SetupChoice             %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source for model setup function of object 1
+Exo_3D                                        %must match one of the algorithms included in customSetups/setups or one provided by the user
+
+objectModel1_MassProperties          %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify how object mass should be calculated 
+ModelFiles_3DHumanExoBox/Exo_3D_MassProperties    %(either as user specified values, or from segment mesh volume and segment mean density, or in setup function)
+% A sample annotated object mass properties file is shown below
+%%
+% <<exoMass.png>>
+%
+
+%%
+% *Object Model 2 Options (optional)*
+% Additional objects such as boxes and other user defined elements can be created using the following options.
+objectModel2_DescriptionFile      %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source for object model description 2
+ModelFiles_3DHumanExoBox/Box15kg_3D_Description
+
+objectModel2_SetupChoice          %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source for object model setup 2, 
+Box15kg_3D                                    %must match one of the algorithms included in customSetups/setups or one provided by the user  
+
+%% Model Customization Options
+% The following optional customization options are currently implemented.
+%
+% Custom segment lengths can be used to make the human model
+% subject-specific. Note that the segment masses and inertia are also
+% adjusted (linearly) proportional to the provided custom lengths
+%
+humanModel_UseCustomLengths      %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify source file for human segment lengths
+ModelFiles_3DHumanExoBox/3DHuman_SegmentLengths
+%
+%%
+% Custom markers can be defined to specify lab-specific arrangements.
+% In addition to the default VICON PIG markerset, a custom "cluster" based
+% markerset is cuurently available for use.
+UseCustomMarkers
+ModelFiles_3DHumanCustom/3DHumanCustom_MarkerOptotrak
+%
+%%
+% Custom constraints can be used to define additional constraints, for
+% example between the human and the objects. For now, only loop-type
+% custom constraints are available between the human and objects
+humanModel_UseCustomConstraints
+ModelFiles_3DHumanExoBox/3DHumanExoBox_LoopConstraints
+%
+%%
+% Two type of mesh options are available, "default" and "human". Default meshes
+% plot the human limbs using simple cylindrical and other basic shapes.
+% Human meshes have been derived from the MakeHuman software http://www.makehuman.org/, 
+% and are based on a neutral-gendered character. Note that if you use human
+% meshes alongwith custom segment scaling you probably have to play around
+% with the mesh dimensions and mesh centers (originally defined in the scaling
+% algorithm) to make things look good.
+humanModel_TypeMeshes
+human
+% Image below shows the default and human meshes 
+%%
+% <<meshes.png>>
+%
+
+
+%% Model Creation
+%
+% Once the environment options have been properly loaded, the ModelCreator
+% script is ready to construct the model(s). In the GUI this is
+% accomplished by the "Create Model" button, and in the non-GUI version
+% this step is automatically started upon executing the ModelCreator
+% script. Note that these steps only creates the model structures in Matlab/Octave
+% and does not export/write anything to file. The model is setup sequentially as follows:
+%%
+% <<modelCreate.png>>
+%
+%%
+% # Read human anthropometry
+% # Read human model description
+% # Read custom lengths (if any)
+% # Set human scaling algorithm
+% # Add custom markers (if any)
+% # Create human model with arguments 1-5 (core/fnc_createHumanModel(args)
+% # Read object descriptions (if any)
+% # Set object setups 
+% # Add custom markers (if any)
+% # Create object models with arguments 7-9 (core/fnc_createObjectModel(args)
+% # Compute object mass and inertia properties (if provided additionally)
+% # Read custom constraints (if any)
+
+%% Model Visualization
+%
+% Pressing the Create Model button in the GUI plots the created model(s).
+% Plotting options can be controlled via the check boxes on the right. In
+% the non-GUI version simple plots can be created using the code below, and
+% the plot details controlled using the booleans passed to the function
+% core/plottingUtils/fnc_plotting_plotModel.m
+%%
+% <<modelVis.png>>
+%
+
+% Function call format: 1) model, 2) plotJoints, 3) plotPoints, 4) plotComs, 
+% 5) plotMarkers, 6) printLabels, 7) Mesh Alpha (transparency), 8) markerSize, 
+% 9) rootDisplacement [x, y, z]
+% Note that alpha transparency values are not yet allowed in octave (so use 1.0)
+fnc_plotting_plotModel (humanModel, 0, 0, 0, 0, 0, 1.0, 20, [0 0 0]);
+for objID = 1:nObjects
+    fnc_plotting_plotModel (objects(objID).objectModel, 0, 0, 0, 0, 0, 1.0, 10, [objID*0.5 objID*0.5 0.0]);
+end
+
+%% Model Export
+% Writing of model lua file to disk can be controlled via the Save buttons
+% on the right of the GUI. Note that the GUI preloads the filenames to be
+% saved, but will not save automatically until told to do so (by pressing
+% the button). In the non-GUI version file save is automatically executed
+% at the end of model creation. If you do not wish to save files (e.g. to
+% only visualize models), then just remove these fields or comment them in
+% the environment file.
+%%
+% <<modelExp.png>>
+%
+
+humanModel_Save       %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify target for saving human lua model, 
+humanModel.lua                     %remove this to not save the model (automatically)            
+
+objectModel1_Save         %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify target for saving object 1 lua model         
+exoModel.lua          
+
+objectModel2_Save      %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify target for saving object 2 lua model            
+boxModel.lua       
+
+combinedModel_Save    %<REPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASHREPLACE_WITH_DASH_DASH- Specify target for saving combined lua model
+3DHumanExoBox.lua                  %The combined model consists of human + objects, and any custom constraints  
+
+##### SOURCE END #####
+--></body></html>

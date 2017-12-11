@@ -1,0 +1,27 @@
+
+README - USE-CASE-WALKING
+
+Step 1 - Create the human model using the Environment Setup file data/human.env
+
+Step 2 - Add markers to the file as per your configuration
+		- This may be done either by using the custom marker setup
+		- Or just use the markers already setup in data/human.lua
+
+Step 3 - Compute inverse kinematics (IK) using puppeteer
+		- Download and install puppeteer from  
+		- Run fit_motion and adjust marker positions until your IK results are satisfactory
+
+Step 4 - Compute inverse dynamics (ID) using RBDL
+		- Download and install RBDL from 	
+		- Compile the code provided in ./compute_id
+		- Run ./compute_id -m human.lua -q animation.csv -f forces.csv -p output_folder
+			- You can also use the sample files provided in data and results
+
+Step 5 - Plot IK, ID results using the script plotIKID_results.m
+			
+
+READING LUA MODELS
+
+- For examples on how to read Lua models and the fields such as
+"points", "constraints", "metadata", have a look at the source files
+compute_id/HumanModel.cc and compute_id/HumanModelLuaTypes.h

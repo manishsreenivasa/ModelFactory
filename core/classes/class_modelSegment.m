@@ -19,8 +19,8 @@ classdef class_modelSegment
         joint_r
         joint_E
         length
-        contactPoints
-        contactPointNames
+        points
+        pointNames
         constraintSet
     end
 end

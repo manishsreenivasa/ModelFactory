@@ -81,7 +81,7 @@ buttonHandle.Parent.UserData.humanAnthropometry.heelAnkleZOffset = humanAnthropo
 set(heelAnkleZOffsetTag,'Enable','on','String',num2str(humanAnthropometry.heelAnkleZOffset));
 
 footWidthTag = findobj('Tag','input_personFootWidth');
-buttonHandle.Parent.UserData.humanAnthropometry.footWidth =humanAnthropometry.footWidth;
+buttonHandle.Parent.UserData.humanAnthropometry.footWidth = humanAnthropometry.footWidth;
 set(footWidthTag,'Enable','on','String',num2str(humanAnthropometry.footWidth));
 
 shoulderNeckZOffsetTag = findobj('Tag','input_personShoulderNeckZOffset');

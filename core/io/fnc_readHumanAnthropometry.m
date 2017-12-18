@@ -7,25 +7,25 @@ fid = fopen(humanModel_AnthropometryFile);
 fileTxt = textscan(fid, '%s%f','Delimiter',',','CommentStyle','#');
 fclose(fid);
 
-searchArrayFile = fileTxt{:,1};
+humanAnthropometry.age = fnc_findFieldValue ('age', fileTxt);
+humanAnthropometry.height = fnc_findFieldValue ('height', fileTxt);
+humanAnthropometry.weight = fnc_findFieldValue ('weight', fileTxt);
+humanAnthropometry.gender = fnc_findFieldValue ('gender', fileTxt);
+humanAnthropometry.pelvisWidth = fnc_findFieldValue ('pelvisWidth', fileTxt);
+humanAnthropometry.hipCenterWidth = fnc_findFieldValue ('hipCenterWidth', fileTxt);
+humanAnthropometry.shoulderCenterWidth = fnc_findFieldValue ('shoulderCenterWidth', fileTxt);
+humanAnthropometry.heelAnkleXOffset = fnc_findFieldValue ('heelAnkleXOffset', fileTxt);
+humanAnthropometry.heelAnkleZOffset = fnc_findFieldValue ('heelAnkleZOffset', fileTxt);
+humanAnthropometry.shoulderNeckZOffset = fnc_findFieldValue ('shoulderNeckZOffset', fileTxt);
+humanAnthropometry.footWidth = fnc_findFieldValue ('footWidth', fileTxt);
 
-humanAnthropometry.age = fileTxt{2}(fnc_findFieldValue ('age',searchArrayFile));
-humanAnthropometry.height = fileTxt{2}(fnc_findFieldValue ('height',searchArrayFile));
-humanAnthropometry.weight = fileTxt{2}(fnc_findFieldValue ('weight',searchArrayFile));
-humanAnthropometry.gender = fileTxt{2}(fnc_findFieldValue ('gender',searchArrayFile));
-humanAnthropometry.pelvisWidth = fileTxt{2}(fnc_findFieldValue ('pelvisWidth',searchArrayFile));
-humanAnthropometry.hipCenterWidth = fileTxt{2}(fnc_findFieldValue ('hipCenterWidth',searchArrayFile));
-humanAnthropometry.shoulderCenterWidth = fileTxt{2}(fnc_findFieldValue ('shoulderCenterWidth',searchArrayFile));
-humanAnthropometry.heelAnkleXOffset = fileTxt{2}(fnc_findFieldValue ('heelAnkleXOffset',searchArrayFile));
-humanAnthropometry.heelAnkleZOffset = fileTxt{2}(fnc_findFieldValue ('heelAnkleZOffset',searchArrayFile));
-humanAnthropometry.shoulderNeckZOffset = fileTxt{2}(fnc_findFieldValue ('shoulderNeckZOffset',searchArrayFile));
-humanAnthropometry.footWidth = fileTxt{2}(fnc_findFieldValue ('footWidth',searchArrayFile));
-
-function idx = fnc_findFieldValue (str_to_search, searchArray)
-idx_b = strcmp(str_to_search,searchArray);
+function fieldValue = fnc_findFieldValue (str_to_search, fileTxt)
+idx_b = strcmp(str_to_search,fileTxt{:,1});
 idx = find (idx_b == 1);
 if isempty(idx)
-    error (['Anthropometric field ',str_to_search,' not found in environment setup file']);
+    fieldValue = [];
 elseif length(idx) > 1
     error (['Field ',str_to_search,' defined multiple times in environment setup file']);
+else
+    fieldValue = fileTxt{2}(idx);
 end

@@ -6,9 +6,12 @@
 %
 % |Licensed under the zlib license. See LICENSE for more details.|
 %
-% |Developments of the toolkit can be followed on|
+% |Developments of the toolkit can be followed on: 
+%   https://github.com/manishsreenivasa/ModelFactory|
 %
-% |Please cite this work as|
+% |Please cite this work as: Sreenivasa M & Harant M. (under review), 
+% "ModelFactory: A Matlab/Octave based toolbox to create human body models" 
+% submission to Source Code for Biology & Medicine|
 
 %% General Description
 % The ModelFactory toolkit consists of a set of scripts in Matlab(R)/Octave 

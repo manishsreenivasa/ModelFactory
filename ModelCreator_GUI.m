@@ -12,9 +12,13 @@
 % works on Matlab (tested on Matlab 2017a(R)), and a text based interface 
 % for Matlab(R) / Octave (tested on Octave 4.2.1). 
 %
-% Developments of the toolkit can be followed on: [to be added]
+% Developments of the toolkit can be followed on: 
+%   https://github.com/manishsreenivasa/ModelFactory
 %
-% Please cite this work as: [to be added]
+% Please cite this work as: 
+% Sreenivasa M & Harant M. (under review), "ModelFactory: A Matlab/Octave 
+% based toolbox to create human body models" submission to Source Code for 
+% Biology & Medicine
 
 clear; clc; clf;
 
@@ -52,7 +56,7 @@ txt_EnvironmentSetup = uicontrol('Style', 'text',...
     'Horizontalalignment','left',...
     'FontSize', 8,...
     'Units', 'normalized',...
-    'Position', [0.03,0.93,0.25,.02]);
+    'Position', [0.03,0.93,0.25,0.02]);
 
 %% Human Model Options
 mainFig = ui_setupHumanOptions(mainFig);

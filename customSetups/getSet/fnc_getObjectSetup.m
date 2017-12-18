@@ -4,6 +4,7 @@
 function  [objectSetup, bConsistencyError] = fnc_getObjectSetup (humanModel,...
     objectSetupChosen)
 bConsistencyError = 0;
+objectSetup = [];
 objectSetup_functionFilename = ['fnc_objectSetup_',objectSetupChosen];
 try
     setup_command = ['objectSetup = ',...

@@ -12,15 +12,19 @@
 % works on Matlab (tested on Matlab 2017a(R)), and a text based interface 
 % for Matlab(R)/ Octave (tested on Octave 4.2.1). 
 %
-% Developments of the toolkit can be followed on: [to be added]
+% Developments of the toolkit can be followed on: 
+%   https://github.com/manishsreenivasa/ModelFactory
 %
-% Please cite this work as: [to be added]
+% Please cite this work as: 
+% Sreenivasa M & Harant M. (under review), "ModelFactory: A Matlab/Octave 
+% based toolbox to create human body models" submission to Source Code for 
+% Biology & Medicine
 
 clear; clc;
 
 %% Uncomment any of the lines below to create some sample models
-EnvironmentSetupFile = ['data/samples/use-case-walking/data/human.env'];
-% EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanDefault.env'];
+% EnvironmentSetupFile = ['data/samples/use-case-walking/data/human.env'];
+EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanDefault.env'];
 % EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DChildJensen.env'];
 % EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanCustom.env'];
 % EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanCustomPartial.env'];
@@ -142,7 +146,6 @@ metadata.subject_heelAnkleZOffset    = humanAnthropometry.heelAnkleZOffset;
 metadata.subject_footWidth           = humanAnthropometry.footWidth;
 metadata.subject_shoulderNeckZOffset = ...
     humanAnthropometry.shoulderNeckZOffset;
-
 %% Write lua files
 if ~isempty(EnvironmentSetup.humanModel_Save)
     fnc_writeLUAFile (humanModel, ...

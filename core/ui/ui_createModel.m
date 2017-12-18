@@ -32,14 +32,6 @@ humanAnthropometry.footWidth = str2double(footWidthTag.String);
 shoulderNeckZOffsetTag = findobj('Tag','input_personShoulderNeckZOffset');
 humanAnthropometry.shoulderNeckZOffset = str2double(shoulderNeckZOffsetTag.String);
 humanAnthropometry.gender = buttonHandle.Parent.UserData.humanAnthropometry.gender;
-if isnan(humanAnthropometry.age) | isnan(humanAnthropometry.height) ...
-        | isnan(humanAnthropometry.weight) | isnan(humanAnthropometry.pelvisWidth) ...
-        | isnan(humanAnthropometry.hipCenterWidth) | isnan(humanAnthropometry.shoulderNeckZOffset) ...
-        | isnan(humanAnthropometry.heelAnkleXOffset) | isnan(humanAnthropometry.shoulderCenterWidth) ...
-        | isnan(humanAnthropometry.heelAnkleZOffset) | isnan(humanAnthropometry.footWidth)
-    disp (' - Check inputs for human anthropometry information')
-    return;
-end
 
 customSegmentLengthsDescription = buttonHandle.Parent.UserData.customSegmentLengthsDescription;
 customConstraintsDescription    = buttonHandle.Parent.UserData.customConstraintsDescription;

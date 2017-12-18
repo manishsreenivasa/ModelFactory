@@ -3,7 +3,9 @@
 %
 
 function ui_exportCombinedLuaFile (buttonHandle, ~, ~)
-[filename,pathToFile] = uiputfile(['./data/samples/',buttonHandle.Parent.UserData.EnvironmentSetup.combinedModel_Save],'Export Combined Lua file');
+[filename,pathToFile] = uiputfile(['./data/samples/',...
+    buttonHandle.Parent.UserData.EnvironmentSetup.combinedModel_Save],...
+    'Export Combined Lua file');
 if filename == 0
     return;
 end   
@@ -21,7 +23,6 @@ metadata.subject_heelAnkleZOffset = buttonHandle.Parent.UserData.humanAnthropome
 metadata.subject_shoulderNeckZOffset = buttonHandle.Parent.UserData.humanAnthropometry.shoulderNeckZOffset;
 metadata.subject_footWidth = buttonHandle.Parent.UserData.humanAnthropometry.footWidth;
 metadata.objectsInfo = buttonHandle.Parent.UserData.EnvironmentSetup.objects;
-
 
 humanModel        = buttonHandle.Parent.UserData.humanModel;
 objects           = buttonHandle.Parent.UserData.objects;  

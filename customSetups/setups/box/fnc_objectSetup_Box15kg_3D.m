@@ -16,9 +16,7 @@ BoxSetup.mesh_dimension(1,:)  = [0.25, 0.285, 0.12];
 BoxSetup.length(1)            = 0.12;
 BoxSetup.mass(1,:)            = 15.0;
 BoxSetup.com(1,:)             = [0.0 0.0 0.0];
-
 dim = BoxSetup.mesh_dimension(1,:);
-
 BoxSetup.inertia(1,:,:)       = [diag(	[dim(2)^2 + dim(3)^2, ...
 										 dim(1)^2 + dim(3)^2, ...
 										 dim(1)^2 + dim(2)^2])] ...

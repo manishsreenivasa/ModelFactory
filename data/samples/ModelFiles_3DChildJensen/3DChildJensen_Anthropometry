@@ -1,8 +1,6 @@
 # Data specifying anthropometric details of subject
 # Age in years
 age, 6.0
-# Height in m
-height, 1.25
 # Weight in kg
 weight, 25.0
 # Gender (1 = Male, 0 = Female)

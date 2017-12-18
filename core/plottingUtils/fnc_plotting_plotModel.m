@@ -1,7 +1,8 @@
 %% ModelFactory
 % Licensed under the zlib license. See LICENSE for more details.
 
-function fnc_plotting_plotModel (model, plotJoints, plotPoints, plotComs, plotMarkers, printLabels, fAlpha, markerSize, rootDisplacement)
+function fnc_plotting_plotModel (model, plotJoints, plotPoints, plotComs,...
+    plotMarkers, printLabels, fAlpha, markerSize, rootDisplacement)
 
 if nargin < 9
     rootDisplacement = [0 0 0];
@@ -13,17 +14,24 @@ for i = 1:nSegments
 end
 % Plot root segment first
 rootSegmentID = strmatch ('ROOT', parent_names, 'exact');
-global_axes(rootSegmentID).mat = [model{rootSegmentID}.joint_E model{rootSegmentID}.joint_r'+rootDisplacement'; 0 0 0 1];
+global_axes(rootSegmentID).mat = [model{rootSegmentID}.joint_E ...
+    model{rootSegmentID}.joint_r'+rootDisplacement'; 0 0 0 1];
 
-% Plot contact points, if any exist
+% Plot points, if any exist
 if plotPoints == 1
-    if ~isempty(model{rootSegmentID}.contactPoints)
-        [numPoints,~] = size(model{rootSegmentID}.contactPoints);
+    if ~isempty(model{rootSegmentID}.points)
+        [numPoints,~] = size(model{rootSegmentID}.points);
         for pointNo = 1:numPoints
-            global_contact_position = global_axes(rootSegmentID).mat*[model{rootSegmentID}.contactPoints(pointNo,:) 1]';
-            plot3(global_contact_position(1), global_contact_position(2), global_contact_position(3), 'or', 'markersize', markerSize, 'markerfacecolor', 'r');
+            global_position = global_axes(rootSegmentID).mat*...
+                [model{rootSegmentID}.points(pointNo,:) 1]';
+            plot3(global_position(1), global_position(2),...
+                global_position(3), 'or', 'markersize', markerSize,...
+                'markerfacecolor', 'r');
             if printLabels == 1
-                text(global_contact_position(1), global_contact_position(2), global_contact_position(3), char(model{rootSegmentID}.contactPointNames(pointNo)),'interpreter','none');
+                text(global_position(1), global_position(2),...
+                    global_position(3),...
+                    char(model{rootSegmentID}.pointNames(pointNo)),...
+                    'interpreter','none');
             end
         end
     end
@@ -71,15 +79,15 @@ for segmentID = 1:nSegments
         fnc_plotting_plotJointAxis(global_axes(segmentID).mat, 'k', 5, 0.05);
     end
     
-    % Plot contact points, if any exist
+    % Plot points, if any exist
     if plotPoints == 1
-        if ~isempty(model{segmentID}.contactPoints)
-            [numPoints,~] = size(model{segmentID}.contactPoints);
+        if ~isempty(model{segmentID}.points)
+            [numPoints,~] = size(model{segmentID}.points);
             for pointNo = 1:numPoints
-                global_contact_position = global_axes(segmentID).mat*[model{segmentID}.contactPoints(pointNo,:) 1]';
-                plot3(global_contact_position(1), global_contact_position(2), global_contact_position(3), 'or', 'markersize', markerSize, 'markerfacecolor', 'r');
+                global_position = global_axes(segmentID).mat*[model{segmentID}.points(pointNo,:) 1]';
+                plot3(global_position(1), global_position(2), global_position(3), 'or', 'markersize', markerSize, 'markerfacecolor', 'r');
                 if printLabels == 1
-                    text(global_contact_position(1), global_contact_position(2), global_contact_position(3), char(model{segmentID}.contactPointNames(pointNo)),'interpreter','none');
+                    text(global_position(1), global_position(2), global_position(3), char(model{segmentID}.pointNames(pointNo)),'interpreter','none');
                 end
             end
         end

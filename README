@@ -4,13 +4,13 @@ Copyright (c) 2017 Manish Sreenivasa
 
 Licensed under the zlib license. See LICENSE for more details.
 
-See accompanying publication for further details: [TBA]
+See accompanying publication for further details: Sreenivasa M & Harant M. (under review), "ModelFactory: A Matlab/Octave based toolbox to create human body models" submission to Source Code for Biology & Medicine
 
 ----------------------------------------------
 
 The ModelFactory toolkit is a set of scripts in Matlab(R)/Octave that can be used to create rigid-body models of humans and objects. By default a graphical user interface is included that works on Matlab (tested on Matlab 2017a(R)), and a text based interface for Matlab(R)/ Octave (tested on Octave 4.2.1). 
 
-Developments of the toolkit can be followed on: [TBA]
-Please cite this work as: [TBA]
+Developments of the toolkit can be followed on: https://github.com/manishsreenivasa/ModelFactory
+Please cite this work as: Sreenivasa M & Harant M. (under review), "ModelFactory: A Matlab/Octave based toolbox to create human body models" submission to Source Code for Biology & Medicine
 
 Documentation is available in the './doc' folder in html and pdf formats

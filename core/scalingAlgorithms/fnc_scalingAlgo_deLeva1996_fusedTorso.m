@@ -8,6 +8,16 @@
 function out_ScalingAlgorithm = fnc_scalingAlgo_deLeva1996_fusedTorso (...
     humanModelDescription, inParam_PersonInfo, customLengthsDescription, meshOption)
 
+% Check if all required anthropometry has been defined
+if isempty(inParam_PersonInfo.height) || isempty(inParam_PersonInfo.weight)...
+        || isempty(inParam_PersonInfo.gender) || isempty(inParam_PersonInfo.pelvisWidth)...
+        || isempty(inParam_PersonInfo.hipCenterWidth) || isempty(inParam_PersonInfo.shoulderCenterWidth)...
+        || isempty(inParam_PersonInfo.heelAnkleXOffset) || isempty(inParam_PersonInfo.heelAnkleZOffset)...
+        || isempty(inParam_PersonInfo.shoulderNeckZOffset) || isempty(inParam_PersonInfo.footWidth)
+    disp ('  Check that the scaling type you are trying to use (fnc_scalingAlgo_deLeva1996_fusedTorso) has all the information needed in the anthropometry file');
+    disp ('  Note that even partial models need information for segments not included in the final model. This drawback will be updated soon.');
+    error ('- Missing anthropometric details.'); 
+end
 nSegments = 14;
 
 fnc_scalingAlgo_deLeva1996_fusedTorso.female.segment_type_names =  {

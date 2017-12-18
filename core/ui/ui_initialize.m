@@ -25,25 +25,33 @@ mainFig.UserData.meshTypeOptions = {'',...
     'human'};
 mainFig.UserData.meshOption = '';
 
-mainFig.UserData.objectList               = {''};
-
+mainFig.UserData.objectList = {''};
+tag_objectList = findobj('Tag','popup_menuObjectList');
+set(tag_objectList,'Enable','off','String',mainFig.UserData.objectList,'Value',1);
+tag_EnvObjectModelFile = findobj('Tag','txt_objectModelFileName');
+set(tag_EnvObjectModelFile,'String','','Enable','off');
+tag_EnvObjectSetup = findobj('Tag','txt_objectSetupChoice');  
+set(tag_EnvObjectSetup,'String','','Enable','off');
+tag_EnvObjectMassFile = findobj('Tag','txt_objectMassFile');
+set(tag_EnvObjectMassFile,'String','','Enable','off');
+ 
 mainFig.UserData.customSegmentLengthsDescription = [];
 mainFig.UserData.customConstraintsDescription    = [];
 mainFig.UserData.customMarkerFile                = [];
 mainFig.UserData.customMarkerDescription         = [];
 mainFig.UserData.customConstraints               = [];
 
-mainFig.UserData.humanAnthropometry.age                 = 36;
-mainFig.UserData.humanAnthropometry.gender              = 1;
-mainFig.UserData.humanAnthropometry.weight              = 78.0;
-mainFig.UserData.humanAnthropometry.height              = 1.72;
-mainFig.UserData.humanAnthropometry.pelvisWidth         = 0.3;
-mainFig.UserData.humanAnthropometry.hipCenterWidth      = 0.19;
-mainFig.UserData.humanAnthropometry.shoulderCenterWidth = 0.33;
-mainFig.UserData.humanAnthropometry.heelAnkleXOffset    = 0.065;
-mainFig.UserData.humanAnthropometry.heelAnkleZOffset    = 0.1;
-mainFig.UserData.humanAnthropometry.footWidth           = 0.09;
-mainFig.UserData.humanAnthropometry.shoulderNeckZOffset = 0.09;
+mainFig.UserData.humanAnthropometry.age                 = [];
+mainFig.UserData.humanAnthropometry.gender              = [];
+mainFig.UserData.humanAnthropometry.weight              = [];
+mainFig.UserData.humanAnthropometry.height              = [];
+mainFig.UserData.humanAnthropometry.pelvisWidth         = [];
+mainFig.UserData.humanAnthropometry.hipCenterWidth      = [];
+mainFig.UserData.humanAnthropometry.shoulderCenterWidth = [];
+mainFig.UserData.humanAnthropometry.heelAnkleXOffset    = [];
+mainFig.UserData.humanAnthropometry.heelAnkleZOffset    = [];
+mainFig.UserData.humanAnthropometry.footWidth           = [];
+mainFig.UserData.humanAnthropometry.shoulderNeckZOffset = [];
 
 mainFig.UserData.visualizationSettings.markerSize   = 10;
 mainFig.UserData.visualizationSettings.plotComs     = 0;

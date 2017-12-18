@@ -10,24 +10,24 @@ fprintf(fid,'return {\n');
 % Write meta information
 if ~isempty(metadata)
     fprintf(fid,'metadata = {');
-    fprintf(fid,'\n\t {scaling_used = "%s",', metadata.scaling_used);
-    fprintf(fid,'\n\t subject_age = %.1f,', metadata.subject_age);
-    fprintf(fid,'\n\t subject_height = %.2f,', metadata.subject_height);
-    fprintf(fid,'\n\t subject_weight = %.2f,', metadata.subject_weight);
+    fprintf(fid,'\n\t {scaling_used = {"%s"},', metadata.scaling_used);
+    fprintf(fid,'\n\t subject_age = {%.1f},', metadata.subject_age);
+    fprintf(fid,'\n\t subject_height = {%.2f},', metadata.subject_height);
+    fprintf(fid,'\n\t subject_weight = {%.2f},', metadata.subject_weight);
     if metadata.subject_gender == 1
-        fprintf(fid,'\n\t subject_gender = "male",');
+        fprintf(fid,'\n\t subject_gender = {"male"},');
     else
-        fprintf(fid,'\n\t subject_gender = "female",');
+        fprintf(fid,'\n\t subject_gender = {"female"},');
     end
-    fprintf(fid,'\n\t subject_pelvisWidth = %.4f,', metadata.subject_pelvisWidth);
-    fprintf(fid,'\n\t subject_hipCenterWidth = %.4f,', metadata.subject_hipCenterWidth);
-    fprintf(fid,'\n\t subject_shoulderCenterWidth = %.4f,', metadata.subject_shoulderCenterWidth);
-    fprintf(fid,'\n\t subject_heelAnkleXOffset = %.4f,', metadata.subject_heelAnkleXOffset);
-    fprintf(fid,'\n\t subject_heelAnkleZOffset = %.4f,', metadata.subject_heelAnkleZOffset);
-    fprintf(fid,'\n\t subject_shoulderNeckZOffset = %.4f,', metadata.subject_shoulderNeckZOffset);
-    fprintf(fid,'\n\t subject_footWidth = %.4f,', metadata.subject_footWidth);
+    fprintf(fid,'\n\t subject_pelvisWidth = {%.4f},', metadata.subject_pelvisWidth);
+    fprintf(fid,'\n\t subject_hipCenterWidth = {%.4f},', metadata.subject_hipCenterWidth);
+    fprintf(fid,'\n\t subject_shoulderCenterWidth = {%.4f},', metadata.subject_shoulderCenterWidth);
+    fprintf(fid,'\n\t subject_heelAnkleXOffset = {%.4f},', metadata.subject_heelAnkleXOffset);
+    fprintf(fid,'\n\t subject_heelAnkleZOffset = {%.4f},', metadata.subject_heelAnkleZOffset);
+    fprintf(fid,'\n\t subject_shoulderNeckZOffset = {%.4f},', metadata.subject_shoulderNeckZOffset);
+    fprintf(fid,'\n\t subject_footWidth = {%.4f},', metadata.subject_footWidth);    
     for i = 1:length(objects)
-        fprintf(fid,'\n\t objectModel%d = "%s",', i, metadata.objectsInfo(i).modelSetupChoice);
+        fprintf(fid,'\n\t objectModel%d = {"%s"},', i, metadata.objectsInfo(i).modelSetupChoice);
     end
     fprintf(fid,'},\n},\n');
 end
@@ -38,13 +38,13 @@ fprintf(fid,'configuration = {\n\taxis_front = { 1, 0, 0,},');
 fprintf(fid,'\n\taxis_right = { 0, -1, 0,},');
 fprintf(fid,'\n\taxis_up = { 0, 0, 1,},\n},');
 
-% Write contact point information
+% Write point information
 fprintf (fid,'\npoints = {');
 if ~isempty(humanModel)
-    write_contactPointsLua (humanModel, fid);
+    write_pointsLua (humanModel, fid);
 end
 for i = 1:length(objects)
-    write_contactPointsLua (objects(i).objectModel, fid);
+    write_pointsLua (objects(i).objectModel, fid);
 end
 fprintf(fid,'\n},');
 
@@ -200,9 +200,9 @@ for constID = 1:n_customConstraints
                         ' could not find predecessor body,', constraints(constID).set(j).predecessor_body]);
                 end
                 % Search for contact point in contact body
-                if strmatch (constraints(constID).set(j).predecessor_transform_contact{1}, contactBody.contactPointNames, 'exact')
-                    contactPointIdx = strmatch (constraints(constID).set(j).predecessor_transform_contact{1}, contactBody.contactPointNames, 'exact');
-                    r = contactBody.contactPoints(contactPointIdx,:);
+                if strmatch (constraints(constID).set(j).predecessor_transform_contact{1}, contactBody.pointNames, 'exact')
+                    contactPointIdx = strmatch (constraints(constID).set(j).predecessor_transform_contact{1}, contactBody.pointNames, 'exact');
+                    r = contactBody.points(contactPointIdx,:);
                     E = eye(3);
                 else
                     disp ([' - In custom constraint, ', constraints(constID).set(j).name,...
@@ -252,11 +252,11 @@ for constID = 1:n_customConstraints
                 
                 % Search for contact point in contact body
                 if strmatch (constraints(constID).set(j).successor_transform_contact{1}, ...
-                        contactBody.contactPointNames, 'exact')
+                        contactBody.pointNames, 'exact')
                     contactPointIdx = strmatch ...
                         (constraints(constID).set(j).successor_transform_contact{1}, ...
-                        contactBody.contactPointNames, 'exact');
-                    r = contactBody.contactPoints(contactPointIdx,:);
+                        contactBody.pointNames, 'exact');
+                    r = contactBody.points(contactPointIdx,:);
                     E = eye(3);
                 else
                     disp ([' - In custom constraint, ', ...
@@ -291,17 +291,17 @@ for constID = 1:n_customConstraints
 end
 end
 
-function write_contactPointsLua (model, fid)
+function write_pointsLua (model, fid)
 for segID = 1:length(model)
-    if ~isempty(model{segID}.contactPoints)
-        [nPoints,~] = size(model{segID}.contactPoints);
+    if ~isempty(model{segID}.points)
+        [nPoints,~] = size(model{segID}.points);
         for l = 1:nPoints
-            fprintf(fid,'\n\t{name = "%s", ', char(model{segID}.contactPointNames(l)));
+            fprintf(fid,'\n\t{name = "%s", ', char(model{segID}.pointNames(l)));
             fprintf(fid,'body = "%s", ', char(model{segID}.name));
             fprintf(fid,'point = {%6f, %6f, %6f,},},', ...
-                model{segID}.contactPoints(l,1), ...
-                model{segID}.contactPoints(l,2), ...
-                model{segID}.contactPoints(l,3));
+                model{segID}.points(l,1), ...
+                model{segID}.points(l,2), ...
+                model{segID}.points(l,3));
         end
     end
 end

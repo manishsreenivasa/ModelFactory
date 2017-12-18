@@ -9,7 +9,12 @@ function [joint, joint_r, joint_E] = fnc_getJointConfiguration (model,...
 dict_definitions;
 
 jointIDXMatch = strmatch (modelJoint_typeName, {JointTypesDictionary(:).name}, 'exact');
-joint = JointTypesDictionary(jointIDXMatch).axes;
+if isfield(JointTypesDictionary(jointIDXMatch),'customJoint')
+    % This is a custom joint and must be handled in a special way
+    joint = [];
+else
+    joint = JointTypesDictionary(jointIDXMatch).axes;    
+end
 
 parentID = model{segmentID}.parentID;
 

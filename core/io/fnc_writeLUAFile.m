@@ -93,11 +93,11 @@ for i = 1:length(model)
     fnc_writeLUAMatrix (fid, model{i}.inertia, 3); fprintf(fid,'\n\t},');
     
     % Write joint info
-    fprintf(fid,'\n\tjoint= \n');
+    fprintf(fid,'\n\tjoint = \n');
     [n1,~] = size(model{i}.joint);
     if n1 == 1
-        fprintf(fid,'{');                               
-        fnc_writeLUAMatrix (fid, model{i}.joint,2);       
+        fprintf(fid,'{');
+        fnc_writeLUAMatrix (fid, model{i}.joint,2);
         fprintf(fid,'},');
     else
         fnc_writeLUAMatrix(fid, model{i}.joint, 2);

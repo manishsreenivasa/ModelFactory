@@ -10,7 +10,7 @@
 % can be used to create models of humans and human-centered devices such as
 % exoskeletons. By default a graphical user interface is included that 
 % works on Matlab (tested on Matlab 2017a(R)), and a text based interface 
-% for Matlab(R) / Octave (tested on Octave 4.2.1). 
+% for Matlab(R) / Octave (tested on Octave 4.2.1, https://ftp.gnu.org/gnu/octave/). 
 %
 % Developments of the toolkit can be followed on: 
 %   https://github.com/manishsreenivasa/ModelFactory

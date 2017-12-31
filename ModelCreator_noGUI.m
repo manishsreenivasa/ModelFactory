@@ -10,7 +10,7 @@
 % can be used to create models of humans and human-centered devices such as
 % exoskeletons. By default a graphical user interface is included that 
 % works on Matlab (tested on Matlab 2017a(R)), and a text based interface 
-% for Matlab(R)/ Octave (tested on Octave 4.2.1). 
+% for Matlab(R)/ Octave (tested on Octave 4.2.1, https://ftp.gnu.org/gnu/octave/). 
 %
 % Developments of the toolkit can be followed on: 
 %   https://github.com/manishsreenivasa/ModelFactory
@@ -24,7 +24,7 @@ clear; clc;
 
 %% Uncomment any of the lines below to create some sample models
 % EnvironmentSetupFile = ['data/samples/use-case-walking/data/human.env'];
-EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanDefault.env'];
+% EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanDefault.env'];
 % EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DChildJensen.env'];
 % EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanCustom.env'];
 % EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanCustomPartial.env'];
@@ -33,8 +33,8 @@ EnvironmentSetupFile = ['data/samples/EnvironmentSetup_3DHumanDefault.env'];
 % EnvironmentSetupFile = ['data/samples/EnvironmentSetup_SagittalHuman.env'];
 
 %% Set path to Modelfactory's folders
-addpath(genpath('./core'));
-addpath(genpath('./customSetups'));
+addpath(genpath('core'));
+addpath(genpath('customSetups'));
 disp (['Processing environment setup file :: ', EnvironmentSetupFile]);
 basePathIdx = strfind (EnvironmentSetupFile,'/');
 basePath = EnvironmentSetupFile(1:basePathIdx(end));
@@ -179,13 +179,12 @@ end
 % Note that alpha transparency values are not yet allowed in octave
 
 clf; hold on;
-fnc_plotting_plotModel (humanModel, 0, 1, 0, 1, 0, 1.0, 15, [0 0 0]);
+fnc_plotting_plotModel (humanModel, 0, 1, 0, 0, 0, 1.0, 15, [0 0 0]);
 for objID = 1:EnvironmentSetup.nObjects
-    fnc_plotting_plotModel (objects(objID).objectModel, 0, 0, 0, 0, 0, 1.0, 10, [objID*0.5 objID*0.5 0.0]);
+    fnc_plotting_plotModel (objects(objID).objectModel, 0, 1, 0, 1, 0, 1.0, 10, [objID*0.5 objID*0.5 0.0]);
 end
 light('Position',[2.0,-2.0,2.0],'Style','infinite');
-xlim([-0.5 0.5]); ylim([-0.5 0.5]);
-view([50 10]);
+view([30 30]);
 axis equal; grid off;
 axis off;
 xlabel('X'); ylabel('Y'); zlabel('Z');

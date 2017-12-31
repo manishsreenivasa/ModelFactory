@@ -10,27 +10,77 @@ fprintf(fid,'return {\n');
 % Write meta information
 if ~isempty(metadata)
     fprintf(fid,'metadata = {');
-    fprintf(fid,'\n\t {scaling_used = {"%s"},', metadata.scaling_used);
-    fprintf(fid,'\n\t subject_age = {%.1f},', metadata.subject_age);
-    fprintf(fid,'\n\t subject_height = {%.2f},', metadata.subject_height);
-    fprintf(fid,'\n\t subject_weight = {%.2f},', metadata.subject_weight);
-    if metadata.subject_gender == 1
-        fprintf(fid,'\n\t subject_gender = {"male"},');
-    else
-        fprintf(fid,'\n\t subject_gender = {"female"},');
+    if ~isempty(metadata.scaling_used)
+        fprintf(fid,'\n\t {scaling_used = {"%s"},', metadata.scaling_used);
     end
-    fprintf(fid,'\n\t subject_pelvisWidth = {%.4f},', metadata.subject_pelvisWidth);
-    fprintf(fid,'\n\t subject_hipCenterWidth = {%.4f},', metadata.subject_hipCenterWidth);
-    fprintf(fid,'\n\t subject_shoulderCenterWidth = {%.4f},', metadata.subject_shoulderCenterWidth);
-    fprintf(fid,'\n\t subject_heelAnkleXOffset = {%.4f},', metadata.subject_heelAnkleXOffset);
-    fprintf(fid,'\n\t subject_heelAnkleZOffset = {%.4f},', metadata.subject_heelAnkleZOffset);
-    fprintf(fid,'\n\t subject_shoulderNeckZOffset = {%.4f},', metadata.subject_shoulderNeckZOffset);
-    fprintf(fid,'\n\t subject_footWidth = {%.4f},', metadata.subject_footWidth);    
+    if ~isempty(metadata.subject_age)
+        fprintf(fid,'\n\t subject_age = {%.1f},', metadata.subject_age);
+    end
+    if ~isempty(metadata.subject_height)
+        fprintf(fid,'\n\t subject_height = {%.2f},', metadata.subject_height);
+    end
+    if ~isempty(metadata.subject_weight)
+        fprintf(fid,'\n\t subject_weight = {%.2f},', metadata.subject_weight);
+    end
+    if ~isempty(metadata.subject_gender)
+        if metadata.subject_gender == 1
+            fprintf(fid,'\n\t subject_gender = {"male"},');
+        else
+            fprintf(fid,'\n\t subject_gender = {"female"},');
+        end
+    end
+    if ~isempty(metadata.subject_pelvisWidth)
+        fprintf(fid,'\n\t subject_pelvisWidth = {%.4f},', metadata.subject_pelvisWidth);
+    end
+    if ~isempty(metadata.subject_hipCenterWidth)
+        fprintf(fid,'\n\t subject_hipCenterWidth = {%.4f},', metadata.subject_hipCenterWidth);
+    end
+    if ~isempty(metadata.subject_shoulderCenterWidth)
+        fprintf(fid,'\n\t subject_shoulderCenterWidth = {%.4f},', metadata.subject_shoulderCenterWidth);
+    end
+    if ~isempty(metadata.subject_heelAnkleXOffset)
+        fprintf(fid,'\n\t subject_heelAnkleXOffset = {%.4f},', metadata.subject_heelAnkleXOffset);
+    end
+    if ~isempty(metadata.subject_heelAnkleZOffset)
+        fprintf(fid,'\n\t subject_heelAnkleZOffset = {%.4f},', metadata.subject_heelAnkleZOffset);
+    end
+    if ~isempty(metadata.subject_shoulderNeckZOffset)
+        fprintf(fid,'\n\t subject_shoulderNeckZOffset = {%.4f},', metadata.subject_shoulderNeckZOffset);
+    end
+    if ~isempty(metadata.subject_footWidth)
+        fprintf(fid,'\n\t subject_footWidth = {%.4f},', metadata.subject_footWidth);
+    end
     for i = 1:length(objects)
         fprintf(fid,'\n\t objectModel%d = {"%s"},', i, metadata.objectsInfo(i).modelSetupChoice);
     end
-    fprintf(fid,'},\n},\n');
+    fprintf(fid,'\n\t},\n');
+    fprintf(fid,'},\n');
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % Write global frame information
 fprintf(fid,'gravity = { 0, 0, -9.81,},\n');
@@ -95,7 +145,7 @@ for i = 1:length(model)
     fprintf(file,'\n\t\tcom = ');
     fnc_writeLUAMatrix (file, model{i}.com, 1);
     fprintf(file,'\n\t\tinertia = \n');
-    fnc_writeLUAMatrix (file, model{i}.inertia, 3);
+    fnc_writeLUAMatrix (file, squeeze(model{i}.inertia), 3);
     fprintf(file,'\n\t},');
     
     % Write joint info

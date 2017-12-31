@@ -52,3 +52,6 @@ JointTypesDictionary(offsetID+8).axes = [ 0., 0., 0., 1., 0., 0.;
 JointTypesDictionary(offsetID+9).name = 'Joint_TZRY';
 JointTypesDictionary(offsetID+9).axes = [ 0., 0., 0., 0., 0., 1.;
     0., 1., 0., 0., 0., 0.];
+
+JointTypesDictionary(offsetID+10).name = 'Joint_Fixed';
+JointTypesDictionary(offsetID+10).axes = [ ];

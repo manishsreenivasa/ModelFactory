@@ -16,4 +16,4 @@ dict_constraint_sets
 dict_custom_constraint_sets
 
 %%%%%%%%%%%%%%%%%%%%%%%%%% OTHER CUSTOM SETS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-run('/home/manish/dev/spexor/SagittalLifter_TR-O/ExpData/models/dict_custom_sets')
+
